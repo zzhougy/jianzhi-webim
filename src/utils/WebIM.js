@@ -305,11 +305,16 @@ WebIM.conn.listen({
 		} else if (message.type == 28) {
 			console.log("未登陆")
 		} else if (JSON.parse(message.data.data).error_description == "user not found") {
-      console.log('ffff3' )
-			Message.error("用户名不存在！")
-      // this.$message.success(process.env.VUE_APP_BASE_API)
-      //location.href=`http://localhost:8081/register` //这里必须要用localhost 不能127.0.0.1
-      location.href=`${process.env.VUE_APP_BASE_API}/register` //这里必须要用localhost 不能127.0.0.1
+      Message.error("用户名不存在，正在为您自动注册...")
+			const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			if (userInfo && userInfo.userId) {
+				const store = require('../store').default;
+				store.dispatch('onRegister', {
+					username: userInfo.userId,
+					password: '123456',
+					nickname: userInfo.userId
+				});
+			}
 		} else if (JSON.parse(message.data.data).error_description == "invalid password") {
 			Message.error('密码无效！')
 		} else if (JSON.parse(message.data.data).error_description == "user not activated") {

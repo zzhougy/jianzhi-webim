@@ -47,7 +47,7 @@ import axios from 'axios'
 import NProgress from 'nprogress' // 引入nprogress插件
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:9001'
-// axios.defaults.baseURL = process.env.VUE_APP_BASE_API_ZZ
+// axios.defaults.baseURL = process.env.VUE_APP_BASE_URL_SERVER
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 
 if (process.env.NODE_ENV !== "production") {
@@ -59,7 +59,7 @@ if (process.env.NODE_ENV !== "production") {
 // 创建axios实例
 axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
-  // baseURL: process.env.VUE_APP_BASE_API_ZZ,
+  // baseURL: process.env.VUE_APP_BASE_URL_SERVER,
   baseURL: 'http://localhost:9001',
   // 超时
   timeout: 10000

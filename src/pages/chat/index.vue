@@ -353,10 +353,8 @@ export default {
       this.acceptSubscribe(JSON.parse(localStorage.getItem("relation")).requester);
       localStorage.setItem('zhoustatus','')
       localStorage.setItem("userInfo", JSON.stringify({ userId: JSON.parse(localStorage.getItem("relation")).requester }));
-      location.href=`${process.env.VUE_APP_BASE_API}/login`
-      console.log('11111111111111111111' )
+      location.href=`${process.env.VUE_APP_BASE_URL_WEBIM}/login`
     }else if (localStorage.getItem('zhoustatus')==='qingqiu'){
-      console.log('22222222222222222222' )
       const option = {
         id: JSON.parse(localStorage.getItem("relation")).receiver,
         // params: this.$route.query.username
@@ -376,7 +374,7 @@ export default {
       // });
       localStorage.setItem("userInfo", JSON.stringify({ userId: JSON.parse(localStorage.getItem("relation")).receiver }));
       localStorage.setItem('zhoustatus','tongguo')
-      location.href=`${process.env.VUE_APP_BASE_API}/login`
+      location.href=`${process.env.VUE_APP_BASE_URL_WEBIM}/login`
 
       console.log('同意建立关系'  )
       //await this.acceptSubscribe('xiaohua');

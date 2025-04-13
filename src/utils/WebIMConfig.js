@@ -16,9 +16,8 @@
 var config = {
     /*
      * Application AppKey
-     */
-  appkey: "修改成自己的",
-
+    WebIMConfig.js */
+  appkey: `${process.env.VUE_APP_WEBIM_APPKEY}`,
   /*
    * Application Host
    */
